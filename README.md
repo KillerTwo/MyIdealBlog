@@ -1,175 +1,171 @@
-# Django-Vue3-Admin
+# MyIdealBlog
 
-[![img](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitee.com/huge-dream/django-vue3-admin/blob/master/LICENSE)  [![img](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)](https://python.org/)  [![PyPI - Django Version badge](https://img.shields.io/badge/django%20versions-3.2-blue)](https://docs.djangoproject.com/zh-hans/3.2/) [![img](https://img.shields.io/badge/node-%3E%3D%2012.0.0-brightgreen)](https://nodejs.org/zh-cn/) [![img](https://gitee.com/huge-dream/django-vue3-admin/badge/star.svg?theme=dark)](https://gitee.com/huge-dream/django-vue3-admin)
-
-[preview](https://demo.dvadmin.com) | [Official website document](https://www.django-vue-admin.com) | [qq group](https://qm.qq.com/cgi-bin/qm/qr?k=fOdnHhC8DJlRHGYSnyhoB8P5rgogA6Vs&jump_from=webapi) | [community](https://bbs.django-vue-admin.com) | [plugins market](https://bbs.django-vue-admin.com/plugMarket.html) | [Github](https://github.com/liqianglog/django-vue-admin)
-
-💡 **「About」**
-
-It is a completely open-source rapid development platform, provided free for personal use and authorized for group use.
-Django-Vue3-Admin is a comprehensive basic development platform based on the RBAC (Role-Based Access Control) model for permission control, with column-level granularity. It follows a frontend-backend separation architecture, with Django and Django Rest Framework used for the backend, and Vue3, Composition API, TypeScript, Vite, and Element Plus used for the frontend.
+[![img](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitee.com/liqianglog/django-vue-admin/blob/master/LICENSE)  [![img](https://img.shields.io/badge/python-%3E=3.9.x-green.svg)](https://python.org/)  [![PyPI - Django Version badge](https://img.shields.io/badge/django%20versions-4.0-blue)](https://docs.djangoproject.com/zh-hans/3.2/) [![img](https://img.shields.io/badge/node-%3E%3D%2016.0.0-brightgreen)](https://nodejs.org/zh-cn/)
 
 
-## framework introduction
 
-💡 [django-vue3-admin](https://gitee.com/huge-dream/django-vue3-admin.git) Is a set of all open source rapid development platform, no reservation for individuals and enterprises free use.
 
-* 🧑‍🤝‍🧑Front-end adoption Vue3+TS+pinia+fastcrud。
-* 👭The backend uses the Python language Django framework as well as the powerful[Django REST Framework](https://pypi.org/project/djangorestframework)。
-* 👫Permission authentication use[Django REST Framework SimpleJWT](https://pypi.org/project/djangorestframework-simplejwt)，Supports the multi-terminal authentication system.
-* 👬Support loading dynamic permission menu, multi - way easy permission control.
-* 👬Enhanced Column Permission Control, with granularity down to each column.
-* 💏Special thanks: [vue-next-admin](https://lyt-top.gitee.io/vue-next-admin-doc-preview/).
-* 💡Special thanks:[jetbrains](https://www.jetbrains.com/) To provide a free IntelliJ IDEA license for this open source project.
+## 平台简介
 
-## Online experience
+💡 MyIdealBlog是一套开源的现代化个人博客系统，提供博客后端管理和博客前端。
+    博客后端管理基于RBAC模型的实现权限控制，权限粒度达到列级别，采用前后端分离，后端采用django + django-rest-framework，前端采用基于 vue3 + CompositionAPI + typescript + vite + element plus
 
-👩‍👧‍👦👩‍👧‍👦 demo address:[https://demo.dvadmin.com](https://demo.dvadmin.com)
 
-* demo account：superadmin
+* 🧑‍🤝‍🧑前端采用 Vue3+TS+pinia+fastcrud(感谢[vue-next-admin](https://lyt-top.gitee.io/vue-next-admin-doc-preview/))
+* 👭后端采用 Python 语言 Django 框架以及强大的 [Django REST Framework](https://pypi.org/project/djangorestframework)。
+* 👫权限认证使用[Django REST Framework SimpleJWT](https://pypi.org/project/djangorestframework-simplejwt)，支持多终端认证系统。
+* 👬支持加载动态权限菜单，多方式轻松权限控制。
+* 👬全新的列权限管控，粒度细化到每一列。
+* 💏特别鸣谢：[vue-next-admin](https://lyt-top.gitee.io/vue-next-admin-doc-preview/)。
 
-* demo password：admin123456
+#### 🏭 环境支持
 
-👩‍👦‍👦docs:[https://django-vue-admin.com](https://django-vue-admin.com)
+| Edge      | Firefox      | Chrome      | Safari      |
+| --------- | ------------ | ----------- | ----------- |
+| Edge ≥ 79 | Firefox ≥ 78 | Chrome ≥ 64 | Safari ≥ 12 |
 
-## communication
+> 由于 Vue3 不再支持 IE11，故而 ElementPlus 也不支持 IE11 及之前版本。
 
-* Communication community:[click here](https://bbs.django-vue-admin.com)👩‍👦‍👦
+## 在线体验
 
-* plugins market:[click here](https://bbs.django-vue-admin.com/plugMarket.html)👩‍👦‍👦
+👩‍👧‍👦演示地址：[https://demo.dvadmin.com](https://demo.dvadmin.com)
 
-## source code url:
+- 账号：superadmin
 
-gitee(Main push)：[https://gitee.com/huge-dream/django-vue3-admin](https://gitee.com/huge-dream/django-vue3-admin)👩‍👦‍👦
+- 密码：admin123456
 
-github：[https://github.com/huge-dream/django-vue3-admin](https://github.com/huge-dream/django-vue3-admin)👩‍👦‍👦
 
-## core function
+## 内置功能
 
-1. 👨‍⚕️Menu Management: Configure system menus, operation permissions, button permission flags, backend interface permissions, etc.
-2. 🧑‍⚕️Department Management: Configure system organizational structure (company, department, role).
-3. 👩‍⚕️Role Management: Role menu permission assignment, data permission assignment, set role-based data scope permissions by department.
-4. 🧑‍🎓Button Permission Control: Authorize role-specific button permissions and interface permissions, enabling authorization of data scope for each interface.
-5. 🧑‍🎓Field Column Permission Control: Authorize page field display permissions, specifically for the display permissions of a certain column.
-6. 👨‍🎓User Management: Users are system operators, and this function is mainly used for system user configuration.
-7. 👬API Whitelist: Configure interfaces that do not require permission verification.
-8. 🧑‍🔧Dictionary Management: Maintain frequently used and relatively fixed data in the system.
-9. 🧑‍🔧Region Management: Manage provinces, cities, counties, and districts.
-10. 📁File Management: Unified management of all files, images, etc., on the platform.
-11. 🗓️Operation Logs: Record and query logs for normal system operations and exceptional system information.
-12. 🔌[Plugin Market](https://bbs.django-vue-admin.com/plugMarket.html): Applications and plugins developed based on the Django-Vue-Admin framework.
+1.  👨‍⚕️菜单管理：配置系统菜单，操作权限，按钮权限标识、后端接口权限等。
+2.  🧑‍⚕️部门管理：配置系统组织机构（公司、部门、角色）。
+3.  👩‍⚕️角色管理：角色菜单权限分配、数据权限分配、设置角色按部门进行数据范围权限划分。
+4.  🧑‍🎓按钮权限控制：授权角色的按钮权限和接口权限,可做到每一个接口都能授权数据范围。
+5.  🧑‍🎓字段列权限控制：授权页面的字段显示权限，具体到某一列的显示权限。
+7.  👨‍🎓用户管理：用户是系统操作者，该功能主要完成系统用户配置。
+8.  👬接口白名单：配置不需要进行权限校验的接口。
+9.  🧑‍🔧字典管理：对系统中经常使用的一些较为固定的数据进行维护。
+10.  🧑‍🔧地区管理：对省市县区域进行管理。
+11.  📁附件管理：对平台上所有文件、图片等进行统一管理。
+12.  🗓️操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
 
-## plugins market 🔌
 
-Updating...
-
-## Repository Branch Explanation 💈
-Main Branch: master (stable version)
-Development Branch: develop
-
-## before start project you need:
-
+## 准备工作
 ~~~
-Python >= 3.11.0 (Minimum version 3.9+)
-Node.js >= 16.0
-Mysql >= 8.0 (Optional, default database: SQLite3, supports 5.7+, recommended version: 8.0)
-Redis (Optional, latest version)
+Python >= 3.11.0 (最低3.9+版本)
+nodejs >= 16.0
+Mysql >= 8.0 (可选，默认数据库sqlite3，支持5.7+，推荐8.0版本)
+Redis (可选，最新版)
 ~~~
 
-## frontend♝
+## 管理前端♝
 
 ```bash
-# clone code
+# 克隆项目
 git clone https://gitee.com/huge-dream/django-vue3-admin.git
 
-# enter code dir
+# 进入项目目录
 cd web
 
-# install dependence
+# 安装依赖
 npm install yarn
-yarn install --registry=https://registry.npm.taobao.org
+yarn install --registry=https://registry.npmmirror.com
 
-# Start service
-yarn run dev
-# Visit http://localhost:8080 in your browser
-# Parameters such as boot port can be configured in the #.env.development file
-# Build the production environment
+# 启动服务
+yarn build
+# 浏览器访问 http://localhost:8080
+# .env.development 文件中可配置启动端口等参数
+# 构建生产环境
 # yarn run build
 ```
 
-## backend💈
+## 博客前端
+
+```bash
+# 克隆项目
+git clone https://gitee.com/huge-dream/django-vue3-admin.git
+
+# 进入项目目录
+cd my-app
+
+# 安装依赖
+npm install
+npm install --registry=https://registry.npmmirror.com
+
+# 启动服务
+npm run dev
+# 浏览器访问 http://localhost:3000
+# 构建生产环境
+npm run build
+```
+
+## 后端💈
 
 ~~~bash
-1. enter code dir cd backend
-2. copy ./conf/env.example.py to ./conf dir，rename as env.py
-3. in env.py configure database information
- mysql database recommended version: 8.0
- mysql database character set: utf8mb4
-4. install pip dependence
- pip3 install -r requirements.txt
-5. Execute the migration command:
- python3 manage.py makemigrations
- python3 manage.py migrate
-6. Initialization data
- python3 manage.py init
-7. Initialize provincial, municipal and county data:
- python3 manage.py init_area
-8. start backend
- python3 manage.py runserver 0.0.0.0:8000
-or uvicorn :
-  uvicorn application.asgi:application --port 8000 --host 0.0.0.0 --workers 8
+# 1. 进入项目目录 
+$ cd backend
+# 2. 在项目根目录中，复制 ./conf/env.example.py 文件为一份新的到 ./conf 文件夹下，并重命名为 env.py
+$ cp -rf ./conf/env.example.py ./conf/env.py
+# 3. 在 env.py 中配置数据库信息
+#	mysql数据库版本建议：8.0
+#	mysql数据库字符集：utf8mb4
+# 4. 安装依赖环境
+$ pip3 install -r requirements.txt
+# 5. 执行迁移命令：
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+# 6. 初始化数据
+$ python3 manage.py init
+# 7. 初始化省市县数据:
+$ python3 manage.py init_area
+# 8. 启动项目
+$ python3 manage.py runserver 0.0.0.0:8000
+# 或使用 uvicorn :
+$ uvicorn application.asgi:application --port 8000 --host 0.0.0.0 --workers 8
 ~~~
+## 开发建议
+前后端backend与web各自单独一个窗口打开进行开发
 
-### visit backend swagger
+### 访问项目
 
-* visit url：[http://localhost:8080](http://localhost:8080) (The default address is this one. If you want to change it, follow the configuration file)
-* account：`superadmin` password：`admin123456`
+- 访问地址：[http://localhost:8080](http://localhost:8080) (默认为此地址，如有修改请按照配置文件)
+- 账号：`superadmin` 密码：`admin123456`
 
-### docker-compose
+
+
+
+
+### docker-compose 运行
 
 ~~~shell
-docker-compose up -d
-# Initialize backend data (first execution only)
-docker exec -ti dvadmin3-django bash
-python manage.py makemigrations 
-python manage.py migrate
-python manage.py init_area
-python manage.py init
-exit
+# 先安装docker-compose (自行百度安装),执行此命令等待安装，如有使用celery插件请打开docker-compose.yml中celery 部分注释
+$ docker-compose up -d
+# 初始化后端数据(第一次执行即可)
+$ docker exec -ti dvadmin3-django bash
+$ python manage.py makemigrations 
+$ python manage.py migrate
+$ python manage.py init_area
+$ python manage.py init
+$ exit
 
-frontend url：http://127.0.0.1:8080
-backend url：http://127.0.0.1:8080/api
-# Change 127.0.0.1 to your own public ip address on the server
-account：`superadmin` password：`admin123456`
+# 前端地址：http://127.0.0.1:8080
+# 后端地址：http://127.0.0.1:8080/api
+# 在服务器上请把127.0.0.1 换成自己公网ip
+# 账号：superadmin 密码：admin123456
 
-# docker-compose stop
-docker-compose down
-#  docker-compose restart
-docker-compose restart
-#  docker-compose on start build
-docker-compose up -d --build
+# docker-compose 停止
+$ docker-compose down
+#  docker-compose 重启
+$ docker-compose restart
+#  docker-compose 启动时重新进行 build
+$ docker-compose up -d --build
 ~~~
 
-## Demo screenshot✅
 
-![image-01](https://foruda.gitee.com/images/1701348994587355489/1bc749e7_5074988.png)
 
-![image-02](https://foruda.gitee.com/images/1701349037811908960/80d361db_5074988.png)
+## 演示图✅
 
-![image-03](https://foruda.gitee.com/images/1701349224478845203/954f0a7b_5074988.png)
 
-![image-04](https://foruda.gitee.com/images/1701349248928658877/64926724_5074988.png)
 
-![image-05](https://foruda.gitee.com/images/1701349259068943299/1306ba40_5074988.png)
-
-![image-06](https://foruda.gitee.com/images/1701349294894429495/e3b3a8cf_5074988.png)
-
-![image-07](https://foruda.gitee.com/images/1701350432536247561/3b26685e_5074988.png)
-
-![image-08](https://foruda.gitee.com/images/1701350455264771992/b364c57f_5074988.png)
-
-![image-09](https://foruda.gitee.com/images/1701350479266000753/e4e4f7c5_5074988.png)
-
-![image-10](https://foruda.gitee.com/images/1701350501421625746/f8dd215e_5074988.png)
 
 
