@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import BlogLayoutHead from "@/components/blog/blog-layout-head";
-import {NextAuthProvider} from "@/lib/auth/nextauth-index";
 
 // import BlogLayoutHead from "@/components/blog/blog-layout-head";
 
@@ -42,13 +41,13 @@ function MyBlogLayout({ children }: LayoutProps) {
     <div className="min-h-screen bg-gray-50">
       <BlogLayoutHead />
 
-      <main className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main style={{ paddingTop: 'calc(4rem + 0.5rem)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8">
           {children}
         </div>
       </main>
 
-      <footer className="bg-white border-t mt-16">
+      <footer className="bg-white border-t border-[#E5E9EE] mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
             <div className="text-gray-900 font-medium">ModStart Blog - 现代化个人博客系统</div>
@@ -66,9 +65,5 @@ function MyBlogLayout({ children }: LayoutProps) {
 }
 
 export function BlogLayout({ children }: LayoutProps) {
-    return (
-        <NextAuthProvider>
-            <MyBlogLayout>{children}</MyBlogLayout>
-        </NextAuthProvider>
-    );
+  return <MyBlogLayout>{children}</MyBlogLayout>;
 }

@@ -22,68 +22,61 @@ export default function Home() {
   return (
       <ContentLayout>
           {/* 轮播图 */}
-          <Carousel className="w-full" autoplay={true} autoplayDelay={4000}>
-            <CarouselContent>
-              {carouselPosts.map((post) => (
-                <CarouselItem key={post.id}>
-                  <Link href={`/posts/${post.id}`}>
-                    <div className="relative h-80 rounded-lg overflow-hidden group">
-                      <Image
-                        src={post.coverImage || '/placeholder.jpg'}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h2 className="text-2xl font-bold mb-2 line-clamp-2">
-                          {post.title}
-                        </h2>
-                        <p className="text-gray-200 line-clamp-2">
-                          {post.summary}
-                        </p>
+          <div className="ub-content-box margin-bottom overflow-hidden" style={{padding: 0}}>
+            <Carousel className="w-full" autoplay={true} autoplayDelay={4000}>
+              <CarouselContent>
+                {carouselPosts.map((post) => (
+                  <CarouselItem key={post.id}>
+                    <Link href={`/posts/${post.id}`}>
+                      <div className="relative h-80 rounded-lg overflow-hidden group">
+                        <Image
+                          src={post.coverImage || '/placeholder.jpg'}
+                          alt={post.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                          <h2 className="text-2xl font-bold mb-2 line-clamp-2">
+                            {post.title}
+                          </h2>
+                          <p className="text-gray-200 line-clamp-2">
+                            {post.summary}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
 
-          {/* 文章列表 */}
-          <div>
-            {/*<div className="mb-4">
-              <h2 className="text-xl font-semibold">最新文章</h2>
-            </div>*/}
-            <div className="flex flex-col gap-y-0 border-1 rounded-md py-2 bg-white divide-y divide-dashed">
+          {/* 文章列表 - ModStart样式 */}
+          <div className="ub-content-box margin-bottom">
+            <div className="p-3">
               {currentPosts.map((post) => (
-                
                 <div key={post.id}>
-                  <PostCard  post={post} />
+                  <PostCard post={post} />
                 </div>
-                
-                
-                
-                
               ))}
-            </div>
-            {/* 分页信息 */}
-            <div className="flex justify-between items-center mt-6">
-              <div className="text-sm text-gray-500">
-                第 {currentPage} 页，共 {totalPages} 页 (总共 {posts.length} 篇文章)
+
+              {/* 分页信息 */}
+              <div className="text-sm text-gray-500 mt-4">
+                第 {currentPage} 页,共 {totalPages} 页 (总共 {posts.length} 篇文章)
               </div>
             </div>
           </div>
 
           {/* 分页 */}
           {totalPages > 1 && (
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center">
               <Pagination>
                 <PaginationContent>
                   <PaginationItem>
-                    <PaginationPrevious 
+                    <PaginationPrevious
                       href="#"
                       onClick={(e) => {
                         e.preventDefault();
@@ -94,7 +87,7 @@ export default function Home() {
                       <span className="hidden sm:block">上一页</span>
                     </PaginationPrevious>
                   </PaginationItem>
-                  
+
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                     <PaginationItem key={page}>
                       <PaginationLink
@@ -109,9 +102,9 @@ export default function Home() {
                       </PaginationLink>
                     </PaginationItem>
                   ))}
-                  
+
                   <PaginationItem>
-                    <PaginationNext 
+                    <PaginationNext
                       href="#"
                       onClick={(e) => {
                         e.preventDefault();

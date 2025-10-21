@@ -13,10 +13,9 @@ import { Home, FolderOpen, Tag, Archive, User, MessageSquare, ExternalLink, Sear
 
 import {signOut, useSession} from "next-auth/react"
 import { useRouter } from "next/navigation"
-import {NextAuthProvider} from "@/lib/auth/nextauth-index";
 
 
-function MyHead() {
+export default function BlogLayoutHead() {
     const { data: session } = useSession()
     const [headerVisible, setHeaderVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -72,15 +71,17 @@ function MyHead() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 bg-white border-b transition-transform duration-300 ${
+            className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E5E9EE] transition-transform duration-300 ${
                 headerVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center h-full space-x-8">
-                        <Link href="/" className="flex items-center h-full text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-                            MyX Ideal Blog
+                        <Link href="/" className="flex items-center h-full group">
+                            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 drop-shadow-sm">
+                                MyX Ideal Blog
+                            </span>
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -92,9 +93,10 @@ function MyHead() {
                                         <NavigationMenuLink asChild>
                                             <Link
                                                 href={item.href}
-                                                className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
-                                                    pathname === item.href ? 'bg-blue-50 text-blue-600' : ''
+                                                className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
+                                                    pathname === item.href ? 'bg-blue-50 text-blue-600' : 'text-[#34495e]'
                                                 }`}
+                                                style={{ fontSize: '0.7rem' }}
                                             >
                                                 <item.icon className="mr-2 h-4 w-4" />
                                                 {item.label}
@@ -110,9 +112,10 @@ function MyHead() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href={item.href}
-                                                    className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
-                                                        pathname === item.href ? 'bg-blue-50 text-blue-600' : ''
+                                                    className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
+                                                        pathname === item.href ? 'bg-blue-50 text-blue-600' : 'text-[#34495e]'
                                                     }`}
+                                                    style={{ fontSize: '0.7rem' }}
                                                 >
                                                     <item.icon className="mr-2 h-4 w-4" />
                                                     {item.label}
@@ -129,9 +132,10 @@ function MyHead() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href={item.href}
-                                                    className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
-                                                        pathname === item.href ? 'bg-blue-50 text-blue-600' : ''
+                                                    className={`group inline-flex items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 ${
+                                                        pathname === item.href ? 'bg-blue-50 text-blue-600' : 'text-[#34495e]'
                                                     }`}
+                                                    style={{ fontSize: '0.7rem' }}
                                                 >
                                                     <item.icon className="mr-2 h-4 w-4" />
                                                     {item.label}
@@ -194,14 +198,15 @@ function MyHead() {
                         {/* Search */}
                         <form onSubmit={handleSearch} className="hidden sm:flex">
                             <div className="relative">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                                 <Input
                                     type="search"
-                                    placeholder="搜索文章..."
+                                    placeholder="搜索内容"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="pl-10 w-64"
+                                    className="pr-10 w-64 rounded-full bg-gray-50 border-gray-200 placeholder:text-gray-400 focus:bg-white"
+                                    style={{ paddingLeft: '1rem', paddingRight: '2.5rem' }}
                                 />
+                                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                             </div>
                         </form>
 
@@ -210,8 +215,8 @@ function MyHead() {
                             session ? (
                                 <DropdownMenu modal={false}>
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                                            <Avatar className="h-8 w-8">
+                                        <Button variant="ghost" className="relative h-8 w-8 rounded-full cursor-pointer">
+                                            <Avatar className="h-8 w-8 cursor-pointer">
                                                 <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=ModStart" alt="Avatar" />
                                                 <AvatarFallback>MS</AvatarFallback>
                                             </Avatar>
@@ -269,13 +274,5 @@ function MyHead() {
                 </div>
             </div>
         </header>
-    );
-}
-
-export default function BlogLayoutHead() {
-    return (
-        <NextAuthProvider>
-            <MyHead />
-        </NextAuthProvider>
     );
 }

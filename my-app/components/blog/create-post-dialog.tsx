@@ -136,7 +136,7 @@ export function CreatePostDialog({ children }: CreatePostDialogProps) {
       </DialogTrigger>
       <DialogContent className="!max-w-7xl !max-h-[90vh] !p-0 flex flex-col overflow-hidden" showCloseButton={false}>
         {/* 美化的头部 */}
-        <DialogHeader className="px-6 py-4 border-b bg-gradient-to-r from-blue-50 to-indigo-50 flex-shrink-0">
+        <DialogHeader className="px-6 py-4 border-b border-[#E5E9EE] bg-gradient-to-r from-blue-50 to-indigo-50 flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-blue-100 rounded-lg">
@@ -339,7 +339,7 @@ export function CreatePostDialog({ children }: CreatePostDialogProps) {
                       </div>
                     ) : (
                       <div 
-                        className="border-2 border-dashed border-gray-200 rounded-lg p-6 text-center hover:border-blue-300 hover:bg-blue-50/50 transition-colors cursor-pointer"
+                        className="border-2 border-dashed border rounded-lg p-6 text-center hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
                         onClick={() => document.getElementById('cover-image-upload')?.click()}
                       >
                         <div className="flex flex-col items-center space-y-3">
@@ -400,7 +400,7 @@ export function CreatePostDialog({ children }: CreatePostDialogProps) {
               </Card>
 
               {/* 操作按钮 */}
-              <div className="flex justify-end space-x-3 pt-6 border-t">
+              <div className="flex justify-end space-x-3 pt-6 border-t border-[#E5E9EE]">
                 <Button
                   type="button"
                   variant="outline"

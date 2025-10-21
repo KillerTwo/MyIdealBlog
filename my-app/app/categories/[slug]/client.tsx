@@ -28,17 +28,17 @@ export function CategoryClient({ category }: CategoryClientProps) {
 
   return (
       <ContentLayout>
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <Link 
-              href="/categories" 
-              className="inline-flex items-center text-gray-600 hover:text-blue-600 mb-6 transition-colors"
+          <div className="ub-content-box margin-bottom">
+            <Link
+              href="/categories"
+              className="inline-flex items-center text-gray-600 hover:text-primary mb-6 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               返回分类列表
             </Link>
 
             <div className="flex items-center mb-6">
-              <FolderOpen className="h-8 w-8 mr-3 text-blue-600" />
+              <FolderOpen className="h-8 w-8 mr-3 text-primary" />
               <div>
                 <h1 className="text-3xl font-bold">{category.name}</h1>
                 {category.description && (
@@ -53,13 +53,19 @@ export function CategoryClient({ category }: CategoryClientProps) {
 
           {categoryPosts.length > 0 ? (
             <>
-              <div className="flex flex-col ap-y-0 border-1 rounded-md py-2 bg-white divide-y divide-dashed">
-                {currentPosts.map((post) => (
-                  <div key={post.id}>
-                    <PostCard post={post} />
+              <div className="ub-content-box margin-bottom">
+                <div className="p-3">
+                  {currentPosts.map((post) => (
+                    <div key={post.id}>
+                      <PostCard post={post} />
+                    </div>
+                  ))}
+
+                  {/* 分页信息 */}
+                  <div className="text-sm text-gray-500 mt-4">
+                    第 {currentPage} 页,共 {totalPages} 页 (总共 {categoryPosts.length} 篇文章)
                   </div>
-                  
-                ))}
+                </div>
               </div>
 
               {totalPages > 1 && (
@@ -67,16 +73,18 @@ export function CategoryClient({ category }: CategoryClientProps) {
                   <Pagination>
                     <PaginationContent>
                       <PaginationItem>
-                        <PaginationPrevious 
+                        <PaginationPrevious
                           href="#"
                           onClick={(e) => {
                             e.preventDefault();
                             if (currentPage > 1) setCurrentPage(currentPage - 1);
                           }}
                           className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
-                        />
+                        >
+                          <span className="hidden sm:block">上一页</span>
+                        </PaginationPrevious>
                       </PaginationItem>
-                      
+
                       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                         <PaginationItem key={page}>
                           <PaginationLink
@@ -91,16 +99,18 @@ export function CategoryClient({ category }: CategoryClientProps) {
                           </PaginationLink>
                         </PaginationItem>
                       ))}
-                      
+
                       <PaginationItem>
-                        <PaginationNext 
+                        <PaginationNext
                           href="#"
                           onClick={(e) => {
                             e.preventDefault();
                             if (currentPage < totalPages) setCurrentPage(currentPage + 1);
                           }}
                           className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
-                        />
+                        >
+                          <span className="hidden sm:block">下一页</span>
+                        </PaginationNext>
                       </PaginationItem>
                     </PaginationContent>
                   </Pagination>
@@ -108,7 +118,7 @@ export function CategoryClient({ category }: CategoryClientProps) {
               )}
             </>
           ) : (
-            <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+            <div className="ub-content-box text-center">
               <p className="text-gray-500">该分类下暂无文章</p>
             </div>
           )}

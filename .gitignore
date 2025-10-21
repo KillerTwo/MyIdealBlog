@@ -155,3 +155,9 @@ __pypackages__/
 package-lock.json
 gunicorn.pid
 !plugins/__init__.py
+
+.claude/
+my-app/.claude/
+backend/.claude/
+web/.claude/
+**/.claude/

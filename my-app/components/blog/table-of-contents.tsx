@@ -123,7 +123,7 @@ export function TableOfContents({ content, className }: TableOfContentsProps) {
   // 展开状态：显示完整的目录卡片
   return (
     <Card className={cn(
-      "fixed z-10 shadow-lg backdrop-blur-sm bg-white/95 border-gray-200/50 transition-all duration-300",
+      "fixed z-10 shadow-lg backdrop-blur-sm bg-white/95 border/50 transition-all duration-300",
       // 响应式位置和大小
       "top-20 right-4 lg:right-4",
       "max-sm:top-16 max-sm:right-2 max-sm:left-2",

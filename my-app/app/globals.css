@@ -46,38 +46,44 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.4rem; /* ModStart 圆角 */
+  --background: 244 246 248; /* #F4F6F8 ModStart背景色 */
+  --foreground: 52 73 94; /* #34495E ModStart文字色 */
+  --card: 255 255 255; /* #FFFFFF 白色卡片 */
+  --card-foreground: 52 73 94;
+  --popover: 255 255 255;
+  --popover-foreground: 52 73 94;
+  --primary: 53 85 204; /* #3555CC ModStart主色 */
+  --primary-foreground: 255 255 255;
+  --primary-light: 175 188 235; /* #afbceb */
+  --primary-dark: 47 76 185; /* #2f4cb9 */
+  --secondary: 247 247 247; /* #F7F7F7 */
+  --secondary-foreground: 52 73 94;
+  --muted: 196 207 219; /* #C4CFDB ModStart柔和色 */
+  --muted-foreground: 107 112 117; /* #6B7075 */
+  --accent: 243 244 246;
+  --accent-foreground: 52 73 94;
+  --destructive: 249 57 32; /* #F93920 ModStart危险色 */
+  --destructive-foreground: 255 255 255;
+  --success: 59 179 70; /* #3bb346 ModStart成功色 */
+  --warning: 252 136 0; /* #fc8800 ModStart警告色 */
+  --link: 0 100 250; /* #0064fa ModStart链接色 */
+  --border: 229 233 238; /* #E5E9EE ModStart边框色 */
+  --input: 244 244 244; /* #F4F4F4 */
+  --ring: 53 85 204; /* #3555CC */
+  --chart-1: 53 85 204;
+  --chart-2: 252 136 0;
+  --chart-3: 59 179 70;
+  --chart-4: 249 57 32;
+  --chart-5: 175 188 235;
+  --sidebar: 255 255 255;
+  --sidebar-foreground: 52 73 94;
+  --sidebar-primary: 53 85 204;
+  --sidebar-primary-foreground: 255 255 255;
+  --sidebar-accent: 247 247 247;
+  --sidebar-accent-foreground: 52 73 94;
+  --sidebar-border: 229 233 238;
+  --sidebar-ring: 53 85 204;
 }
 
 .dark {
@@ -123,35 +129,82 @@
     /* 防止弹框和下拉菜单打开时滚动条导致的布局跳动 */
     overflow-y: scroll;
   }
-  
+
   /* 确保页面始终为滚动条保留空间 */
   html {
     overflow-y: scroll;
   }
-  
+
   /* 防止弹框打开时的布局跳动 */
   body[data-scroll-locked] {
     overflow-y: scroll !important;
     padding-right: 0px !important;
     margin-right: 0px !important;
   }
-  
+
   /* 更全面的弹框滚动锁定处理 */
   [data-radix-dialog-overlay] {
     /* 确保overlay不影响滚动条 */
     overflow-y: auto;
   }
-  
+
   /* 当弹框打开时强制保持滚动条 */
   body:has([data-radix-dialog-overlay]) {
     overflow-y: scroll !important;
     padding-right: 0px !important;
   }
-  
+
   /* 优化下拉菜单动画 */
   [data-radix-dropdown-menu-content] {
     /* 防止内容溢出导致的滚动条闪烁 */
     overflow-x: hidden;
+  }
+
+  /* 默认边框颜色 - 仅影响未明确设置边框颜色的元素 */
+  .border:not([class*="border-"]):not([style*="border"]) {
+    border-color: rgb(var(--border));
+  }
+}
+
+/* ModStartBlog 核心样式类 */
+@layer components {
+  /* 内容盒子 */
+  .ub-content-box {
+    background-color: rgb(var(--card));
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* 边框样式 */
+  .ub-border-bottom {
+    border-bottom: 1px solid rgb(var(--border));
+  }
+
+  /* 容器 */
+  .ub-container {
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* 间距工具类 */
+  .margin-top {
+    margin-top: 1rem !important;
+  }
+
+  .margin-bottom {
+    margin-bottom: 1rem !important;
+  }
+
+  .margin-top-lg {
+    margin-top: 2rem !important;
+  }
+
+  .margin-bottom-lg {
+    margin-bottom: 2rem !important;
   }
 }
 
@@ -163,6 +216,11 @@
 /* MD编辑器自定义样式 */
 .w-md-editor {
   background-color: transparent !important;
+}
+
+/* MD编辑器全屏模式 - 需要白色背景 */
+.w-md-editor-fullscreen {
+  background-color: white !important;
 }
 
 .w-md-editor-text-textarea,

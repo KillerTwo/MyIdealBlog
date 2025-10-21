@@ -44,10 +44,10 @@ export default function ArchivesPage() {
 
   return (
       <ContentLayout>
-          <div className="bg-white rounded-lg shadow-sm p-8">
+          <div className="ub-content-box">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
-                <Archive className="h-8 w-8 mr-3 text-blue-600" />
+                <Archive className="h-8 w-8 mr-3 text-primary" />
                 <h1 className="text-3xl font-bold">文章归档</h1>
               </div>
               <Badge variant="secondary" className="text-base px-3 py-1">
@@ -59,7 +59,7 @@ export default function ArchivesPage() {
               {archives.map((yearArchive) => (
                 <div key={yearArchive.year}>
                   <h2 className="text-2xl font-bold mb-6 flex items-center">
-                    <Calendar className="h-6 w-6 mr-2 text-blue-600" />
+                    <Calendar className="h-6 w-6 mr-2 text-primary" />
                     {yearArchive.year} 年
                     <Badge variant="outline" className="ml-3">
                       {yearArchive.months.reduce((sum, month) => sum + month.posts.length, 0)} 篇
@@ -68,7 +68,7 @@ export default function ArchivesPage() {
 
                   <div className="space-y-6">
                     {yearArchive.months.map((monthArchive) => (
-                      <Card key={monthArchive.month}>
+                      <Card key={monthArchive.month} className="border shadow-sm">
                         <CardHeader>
                           <CardTitle className="text-lg">
                             {monthNames[monthArchive.month - 1]}
@@ -81,17 +81,17 @@ export default function ArchivesPage() {
                           <div className="space-y-3">
                             {monthArchive.posts.map((post) => (
                               <div key={post.id} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-md transition-colors">
-                                <Link 
+                                <Link
                                   href={`/posts/${post.id}`}
-                                  className="flex-1 hover:text-blue-600 transition-colors"
+                                  className="flex-1 hover:text-primary transition-colors"
                                 >
                                   <div className="font-medium">{post.title}</div>
                                   <div className="text-sm text-gray-500 mt-1">{post.summary}</div>
                                 </Link>
                                 <div className="text-sm text-gray-400 ml-4">
-                                  {new Date(post.createdAt).toLocaleDateString('zh-CN', { 
-                                    month: 'short', 
-                                    day: 'numeric' 
+                                  {new Date(post.createdAt).toLocaleDateString('zh-CN', {
+                                    month: 'short',
+                                    day: 'numeric'
                                   })}
                                 </div>
                               </div>
