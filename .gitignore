@@ -46,7 +46,6 @@ yarn-error.log*
 next-env.d.ts
 /backend/venv
 /backend/.idea
-/backend/all_migrations
 .idea
 
 .history/
